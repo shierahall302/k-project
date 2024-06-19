@@ -2,14 +2,14 @@
 
 # Define the first VPC
 resource "google_compute_network" "vpc_1" {
-  name                    = "vpc-1"
+  name                    = "vpc-prod"
   auto_create_subnetworks = false
   project                 = "certain-gearbox-277406"
 }
 
 # Define the second VPC
 resource "google_compute_network" "vpc_2" {
-  name                    = "vpc-2"
+  name                    = "vpc-corp"
   auto_create_subnetworks = false
   project                 = "certain-gearbox-277406"
 }
