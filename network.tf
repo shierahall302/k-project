@@ -36,6 +36,7 @@ resource "google_compute_subnetwork" "subnet_2" {
 resource "google_compute_network" "vpc_network" {
   name                    = "vpc-network"
   auto_create_subnetworks = true
+  project                 = "certain-gearbox-277406"
 }
 
 # Fully Open Firewall Rule
