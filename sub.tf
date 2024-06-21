@@ -182,3 +182,53 @@ resource "google_compute_instance" "instance-elastic" {
   tags = ["http-server", "https-server"]
   zone = "us-central1-c"
 }
+# This code is compatible with Terraform 4.25.0 and versions that are backwards compatible to 4.25.0.
+# For information about validating this Terraform code, see https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-build#format-and-validate-the-configuration
+
+resource "google_compute_instance" "instance-testbed-ubuntu" {
+  boot_disk {
+    auto_delete = true
+    device_name = "instance-testbed-ubuntu"
+
+    initialize_params {
+      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2204-lts"
+      size  = 100
+      type  = "pd-balanced"
+    }
+
+    mode = "READ_WRITE"
+  }
+
+  can_ip_forward      = false
+  deletion_protection = false
+  enable_display      = false
+
+  labels = {
+    goog-ec-src = "vm_add-tf"
+  }
+
+  machine_type = "n2-standard-4"
+
+  metadata = {
+    startup-script = "sudo apt-get update && sudo apt-get install -y git && git clone https://github.com/shierahall302/KatyaTpot-DC && cd KatyaTpot-DC/iso/installer/ && cp tpot.conf.dist tpot.conf && sudo ./install.sh --type=auto --conf=tpot.conf"
+  }
+
+  name = "instance-testbed-ubuntu"
+
+  network_interface {
+    access_config {
+      network_tier = "PREMIUM"
+    }
+
+    queue_count = 0
+    stack_type  = "IPV4_ONLY"
+    subnetwork  = "projects/certain-gearbox-277406/regions/northamerica-northeast1/subnetworks/default"
+  }
+
+  scheduling {
+    automatic_restart   = true
+    on_host_maintenance = "MIGRATE"
+    preemptible         = false
+    provisioning_model  = "STANDARD"
+  }
+  }

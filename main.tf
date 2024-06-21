@@ -11,7 +11,7 @@ resource "google_compute_instance" "instance-tpotce-osaka" {
     device_name = "instance-tpotce-osaka"
 
     initialize_params {
-      image = "projects/debian-cloud/global/images/debian-11-bullseye-v20240213"
+      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2204-lts"
       size  = 100
       type  = "pd-balanced"
     }
@@ -74,7 +74,7 @@ resource "google_compute_instance" "instance-tpotce-tokyo" {
     device_name = "instance-tpotce-tokyo"
 
     initialize_params {
-      image = "projects/debian-cloud/global/images/debian-11-bullseye-v20240213"
+      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2204-lts"
       size  = 100
       type  = "pd-balanced"
     }
@@ -137,7 +137,7 @@ resource "google_compute_instance" "instance-tpotce-seoul" {
     device_name = "instance-tpotce-seoul"
 
     initialize_params {
-      image = "projects/debian-cloud/global/images/debian-11-bullseye-v20240213"
+      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2204-lts"
       size  = 100
       type  = "pd-balanced"
     }
@@ -199,7 +199,7 @@ resource "google_compute_instance" "instance-tpotce-taipei" {
     device_name = "instance-tpotce-1"
 
     initialize_params {
-      image = "projects/debian-cloud/global/images/debian-11-bullseye-v20240213"
+      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2204-lts"
       size  = 100
       type  = "pd-balanced"
     }
