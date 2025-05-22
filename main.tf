@@ -2,64 +2,97 @@ provider "google" {
   project     = var.project
   credentials = "credentials.json"
   region      = var.region
+  zone        = var.zone
 }
 
 module "instance-osaka" {
   source = "./modules/instance"
 
-  device_name         = "instance-tpotce-osaka"
-  image               = var.image
   instance_name       = "instance-tpot-osaka"
-  subnetwork          = "projects/${var.project}/regions/asia-northeast2/subnetworks/default"
-  service_account_email = var.service_account_email
-  scopes              = var.scopes
-  startup_script      = var.startup_script
-  tags                = var.tags
-  zone                = "asia-northeast2-b"
+  image               = var.image
   machine_type        = var.machine_type
+  project             = "your-project-id" # Replace with your project ID
+  region              = "asia-northeast2"
+  zone                = "b"
+  subnet              = "default"
+  disk_type           = "pd-standard"
+  size                = 50
+  enable_display      = false
+  service_account_email = var.service_account_email
+  service_account_scopes = var.scopes
+  tags                = var.tags
+  startup_script      = var.startup_script
+
+  labels = {
+    goog-ec-src = "vm_add-tf"
+  }
 }
 
 module "instance-tokyo" {
   source = "./modules/instance"
 
-  device_name         = "instance-tpotce-tokyo"
-  image               = var.image
   instance_name       = "instance-tpot-tokyo"
-  subnetwork          = "projects/${var.project}/regions/asia-northeast1/subnetworks/default"
-  service_account_email = var.service_account_email
-  scopes              = var.scopes
-  startup_script      = var.startup_script
-  tags                = var.tags
-  zone                = "asia-northeast1-b"
+  image               = var.image
   machine_type        = var.machine_type
+  project             = "your-project-id" # Replace with your project ID
+  region              = "asia-northeast1"
+  zone                = "b"
+  subnet              = "default"
+  disk_type           = "pd-standard"
+  size                = 50
+  enable_display      = false
+  service_account_email = var.service_account_email
+  service_account_scopes = var.scopes
+  tags                = var.tags
+  startup_script      = var.startup_script
+
+  labels = {
+    goog-ec-src = "vm_add-tf"
+  }
 }
 
 module "instance-seoul" {
   source = "./modules/instance"
 
-  device_name         = "instance-tpotce-seoul"
-  image               = var.image
   instance_name       = "instance-tpotce-seoul"
-  subnetwork          = "projects/${var.project}/regions/asia-northeast3/subnetworks/default"
-  service_account_email = var.service_account_email
-  scopes              = var.scopes
-  startup_script      = var.startup_script
-  tags                = var.tags
-  zone                = "asia-northeast3-b"
+  image               = var.image
   machine_type        = var.machine_type
+  project             = "your-project-id" # Replace with your project ID
+  region              = "asia-northeast3"
+  zone                = "b"
+  subnet              = "default"
+  disk_type           = "pd-standard"
+  size                = 50
+  enable_display      = false
+  service_account_email = var.service_account_email
+  service_account_scopes = var.scopes
+  tags                = var.tags
+  startup_script      = var.startup_script
+
+  labels = {
+    goog-ec-src = "vm_add-tf"
+  }
 }
 
 module "instance-taipei" {
   source = "./modules/instance"
 
-  device_name         = "instance-tpotce-1"
-  image               = var.image
   instance_name       = "instance-tpotce-taipei"
-  subnetwork          = "projects/${var.project}/regions/asia-east1/subnetworks/default"
-  service_account_email = var.service_account_email
-  scopes              = var.scopes
-  startup_script      = var.startup_script
-  tags                = var.tags
-  zone                = "asia-east1-b"
+  image               = var.image
   machine_type        = var.machine_type
+  project             = "your-project-id" # Replace with your project ID
+  region              = "asia-east1"
+  zone                = "b"
+  subnet              = "default"
+  disk_type           = "pd-standard"
+  size                = 50
+  enable_display      = false
+  service_account_email = var.service_account_email
+  service_account_scopes = var.scopes
+  tags                = var.tags
+  startup_script      = var.startup_script
+
+  labels = {
+    goog-ec-src = "vm_add-tf"
+  }
 }

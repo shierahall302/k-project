@@ -52,5 +52,9 @@ resource "google_compute_instance" "default" {
   }
 
   tags = var.tags
+
+  metadata = {
+    startup-script = var.startup_script
+  }
   zone = "${var.region}-${var.zone}"
 }

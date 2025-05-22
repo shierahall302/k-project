@@ -64,6 +64,11 @@ variable "tags" {
   description = "Tags to apply to the instance."
 }
 
+variable "startup_script" {
+  type = string
+  description = "The startup script to run on the instance."
+}
+
 variable "zone" {
   type = string
   description = "The zone to deploy the instance in."
