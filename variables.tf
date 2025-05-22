@@ -44,17 +44,19 @@ variable "zone" {
 variable "image" {
   type = string
   description = "The image to use for the instances."
+  default = "projects/debian-cloud/global/images/debian-11-bullseye-v20240213"
 }
 
 variable "scopes" {
   type = list(string)
   description = "The scopes for the service account."
+  default = ""
 }
 
 variable "startup_script" {
   type = string
   description = "The startup script for the instances."
-  default = ""
+  default = "sudo apt-get install git -y && git clone https://github.com/shierahall302/KatyaTpot-DC && cd KatyaTpot-DC/iso/installer/ && cp tpot.conf.dist tpot.conf && sudo ./install.sh --type=auto --conf=tpot.conf"
 }
 
 variable "tags" {
@@ -66,4 +68,5 @@ variable "tags" {
 variable "machine_type" {
   type = string
   description = "The machine type for the instances."
+  default = "n2-standard-4"
 }
