@@ -58,3 +58,26 @@ resource "google_compute_instance" "default" {
   }
   zone = "${var.region}-${var.zone}"
 }
+
+resource "google_compute_firewall" "allow_all_ingress" {
+  name    = "${var.instance_name}-allow-all-ingress"
+  network = "${var.project}/global/networks/default"
+  project = var.project
+
+  allow {
+    protocol = "tcp"
+    ports    = ["1-65535"]
+  }
+
+  allow {
+    protocol = "udp"
+    ports    = ["1-65535"]
+  }
+
+  allow {
+    protocol = "icmp"
+  }
+
+  target_tags = var.tags
+  source_ranges = ["0.0.0.0/0"]
+}

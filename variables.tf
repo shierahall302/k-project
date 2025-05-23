@@ -54,11 +54,6 @@ variable "scopes" {
   default = []
 }
 
-variable "scopes" {
-  type = list(string)
-  description = "The scopes for the service account."
-  default = []
-}
 
 variable "startup_script" {
   type = string
