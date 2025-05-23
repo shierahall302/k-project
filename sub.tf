@@ -16,6 +16,7 @@ module "instance-testbed-windows" {
   service_account_email  = var.service_account_email
   service_account_scopes = var.service_account_scopes
   tags                 = ["http-server", "https-server"]
+  startup_script = var.startup_script
   zone                 = var.zone
 }
 
@@ -35,4 +36,5 @@ module "instance-webserv-one" {
   service_account_scopes = var.service_account_scopes
   tags                 = ["http-server", "https-server"]
   zone                 = var.zone
+  startup_script = var.startup_script
 }

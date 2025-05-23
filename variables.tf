@@ -38,7 +38,7 @@ variable "service_account_scopes" {
 variable "zone" {
   type = string
   description = "The zone to deploy the instances in."
-  default = "a"
+  default = "northamerica-northeast1-a"
 }
 
 variable "image" {
@@ -47,10 +47,17 @@ variable "image" {
   default = "projects/debian-cloud/global/images/debian-11-bullseye-v20240213"
 }
 
+
 variable "scopes" {
   type = list(string)
   description = "The scopes for the service account."
-  default = ""
+  default = []
+}
+
+variable "scopes" {
+  type = list(string)
+  description = "The scopes for the service account."
+  default = []
 }
 
 variable "startup_script" {
