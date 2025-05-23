@@ -64,7 +64,7 @@ variable "startup_script" {
 variable "tags" {
   type = list(string)
   description = "The tags to apply to the instances."
-  default = ["http-server", "https-server"]
+  default = ["http-server", "https-server","h-net"]
 }
 
 variable "machine_type" {
